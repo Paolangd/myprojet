@@ -19,6 +19,16 @@
             color: white;
             font-size: 24px;
         }
+        nav {
+            background: #8e24aa;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
         .container {
             margin: 50px auto;
             max-width: 600px;
@@ -40,17 +50,57 @@
         .btn:hover {
             background: #6a1b9a;
         }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
 </head>
 <body>
     <header>
         🦄 Unicorn Rental Services
     </header>
-    <div class="container">
-        <h1>Rent a Magical Unicorn!</h1>
-        <p>Make your dreams come true by renting a real unicorn for your special events.</p>
-        <p>Perfect for birthdays, weddings, and fantasy-themed parties!</p>
-        <a href="#" class="btn">Book Now</a>
+    <nav>
+        <a href="#" onclick="showSection('about')">Qui sommes-nous?</a>
+        <a href="#" onclick="showSection('services')">Nos services</a>
+        <a href="#" onclick="showSection('contact')">Nous contacter</a>
+    </nav>
+    
+    <div id="about" class="container section">
+        <h1>Qui sommes-nous?</h1>
+        <p>Unicorn Rental est une société spécialisée dans la location de licornes pour tous vos événements magiques.</p>
+    </div>
+    
+    <div id="services" class="container section hidden">
+        <h1>Nos Services</h1>
+        <p>Nous proposons des services de location de licornes pour divers événements :</p>
+        <ul>
+            <li>🌸 Mariages</li>
+            <li>🎂 Anniversaires</li>
+            <li>👶 Baptêmes</li>
+        </ul>
+    </div>
+    
+    <div id="contact" class="container section hidden">
+        <h1>Nous contacter</h1>
+        <p>Remplissez le formulaire ci-dessous pour nous contacter :</p>
+        <form>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
     </div>
 </body>
-</html
+</html>
